@@ -8,24 +8,25 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
     burger.all(function(data) {
         var hbsObject = {
-            burger: data
+            burgers: data
         };
         console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 router.post("/", function(req, res) {
+    console.log("inside post fresh hot burger");
     burger.create([
-        "burger_name", "devoured", "created_at"
+        "burger_name"
     ], [
-        req.body.burger_name, req.body.devoured, ((new Date()) + "").split("(").slice(0, 1)[0].trim()
+        req.body.burger
     ], function() {
         res.redirect("/");
     });
 });
 router.put("/:id", function(req, res) {
     var condition = "id = " + req.params.id;
-    console.log("condition", condition);
+    console.log(">>>>condition", condition);
     burger.update({
         devoured: req.body.devoured
     }, condition, function() {

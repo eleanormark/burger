@@ -7,7 +7,7 @@ body  {
 }
 
 input[type=text] {
-    width: 150px;
+    width: 122px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -23,11 +23,16 @@ input[type=text]:focus {
     width: 100%;
 }
 
+.form-control:focus {
+    border-color: white;
+
+}
+
 .content {
     margin-top: 40px;
 }
 
-p {
+.logo-text {
     color: white;
     text-shadow: 1px 1px 1px black;
 }
@@ -50,4 +55,5 @@ p {
 
 .btn:hover, .btn:active, .btn:focus {
     outline: none!important;
+    -webkit-box-shadow: none;
 }
