@@ -50,7 +50,6 @@ input[type=text]:focus {
     border: solid white 1px;
     background: rgba(204, 204, 204, 0.5)!important;
     margin-bottom: 20px;
-    font-weight: bold;
 }
 
 .btn:hover, .btn:active, .btn:focus {

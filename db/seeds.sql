@@ -13,14 +13,17 @@ create table if not exists burgers (
    id INT( 11 ) AUTO_INCREMENT NOT NULL,
    burger_name VARCHAR( 255) NOT NULL,
    devoured BOOLEAN NOT NULL DEFAULT false,
+   removed BOOLEAN NOT NULL DEFAULT false,
    created_at TIMESTAMP NOT NULL,
    PRIMARY KEY ( id )
 );
 
-insert into burgers (burger_name, devoured)
+insert into burgers (burger_name)
 values
-('sweet potato burger', false),
-('portobello mushroom burger', false),
-('black bean burger', false);
+('sweet potato burger'),
+('portobello mushroom burger'),
+('tofu burger'),
+('black bean burger');
+
 
 --select * from burgers;

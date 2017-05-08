@@ -20,7 +20,7 @@
                         {{#unless this.devoured}}
                             <div class="row">
                                 <div class="col-sm-8">
-                                    <p class="panel-body-text"><strong>{{this.id}}. {{this.burger_name}}<strong></strong></p>
+                                    <p><strong>{{this.id}}. {{this.burger_name}}</strong></p>
                                 </div>
                                 <div class="col-sm-4">
                                     <form action="/{{this.id}}?_method=PUT" method="POST">
@@ -40,7 +40,19 @@
                 <div class="panel-body">
                     {{#each burgers}}
                         {{#if this.devoured}}
-                            <p class=""><strong>{{this.id}}. {{this.burger_name}}</strong></p>
+                            {{#unless this.removed}}
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <p><strong>{{this.id}}. {{this.burger_name}}</strong></p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <form action="/remove/{{this.id}}?_method=PUT" method="POST">
+                                            <input type="hidden" name="removed" value="true">
+                                            <button type="submit" class="btn">Remove</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            {{/unless}}
                         {{/if}}
                     {{/each}}
                 </div>

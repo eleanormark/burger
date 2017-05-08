@@ -15,7 +15,7 @@ router.get("/", function(req, res) {
     });
 });
 router.post("/", function(req, res) {
-    console.log("inside post fresh hot burger");
+    console.log("inside post of fresh hot burger");
     burger.create([
         "burger_name"
     ], [
@@ -26,9 +26,19 @@ router.post("/", function(req, res) {
 });
 router.put("/:id", function(req, res) {
     var condition = "id = " + req.params.id;
-    console.log(">>>>condition", condition);
+    console.log("condition", condition);
     burger.update({
-        devoured: req.body.devoured
+        devoured: req.body.devoured,
+    }, condition, function() {
+        res.redirect("/");
+    });
+});
+
+router.put("/remove/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+    console.log("condition", condition);
+    burger.update({
+        removed: req.body.removed,
     }, condition, function() {
         res.redirect("/");
     });
